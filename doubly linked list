@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node *prev, *next;
+};
+
+int main() {
+    Node *a = new Node{20, NULL, NULL};
+    Node *b = new Node{30, NULL, NULL};
+    Node *c = new Node{40, NULL, NULL};
+
+    a->next = b;
+    b->prev = a;
+    b->next = c;
+    c->prev = b;
+
+    Node* t = a;
+
+    while (t != NULL) {
+        cout << t->data << " ";
+        t = t->next;
+    }
+
+    return 0;
+}
